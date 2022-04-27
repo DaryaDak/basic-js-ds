@@ -24,14 +24,17 @@ const { NotImplementedError } = require('../extensions/index.js');
 function removeKFromList(l, k) {
   
   let current = l;
-
-  while(l.value === k) {
+  if(l == null){
+    return l;
+  }
+  while(l.value == k) {
     l = l.next;
   }
 
-  while (current.next != null) {
-    if (current.next.value === k) {
+  while (current.next) {
+    if (current.next.value == k) {
       current.next = current.next.next;
+      if(current.next == null) break;
     }
     current = current.next;
   }
