@@ -26,19 +26,17 @@ function removeKFromList(l, k) {
   let current = l;
   if(l == null){
     return l;
-  }
-  while(l.value == k) {
-    l = l.next;
-  }
-
-  while (current.next) {
-    if (current.next.value == k) {
-      current.next = current.next.next;
-      if(current.next == null) break;
-    }
+  } 
+  while (current.next != null) {
+  if(current.value == k) {
     current = current.next;
   }
-  return l;
+  else if(current.next.value == k) {
+    current = current.next.next;
+  }
+}
+
+  return current;
 }
 
 module.exports = {
